@@ -323,6 +323,7 @@ const NavContainer = memo(function NavContainer({ children }: PropsWithChildren)
 interface SkeletonProps extends PropsWithChildren {
   menuId?: MenuId
   NavigationMenu?: ReactNode
+  hideFooter?: boolean
 }
 
 function TopNavSkeleton({ children }) {
@@ -336,7 +337,7 @@ function TopNavSkeleton({ children }) {
   )
 }
 
-function SidebarSkeleton({ children, menuId, NavigationMenu }: SkeletonProps) {
+function SidebarSkeleton({ children, menuId, NavigationMenu, hideFooter = false }: SkeletonProps) {
   const mobileMenuOpen = useMenuMobileOpen()
   const hideSideNav = !menuId
 
@@ -366,7 +367,7 @@ function SidebarSkeleton({ children, menuId, NavigationMenu }: SkeletonProps) {
         </div>
         <div className="grow">
           {children}
-          <Footer />
+          {!hideFooter && <Footer />}
         </div>
         <MobileMenuBackdrop />
       </Container>

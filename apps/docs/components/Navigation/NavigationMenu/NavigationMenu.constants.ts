@@ -839,7 +839,7 @@ export const database: NavMenuConstant = {
           items: [
             {
               name: 'Prisma troubleshooting',
-              url: '/guides/database/prisma-troubleshooting',
+              url: '/guides/database/prisma/prisma-troubleshooting',
             },
           ],
         },

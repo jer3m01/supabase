@@ -252,14 +252,12 @@ import Auth from './Auth'
 const App: Component = () => {
   const [session, setSession] = createSignal<AuthSession | null>(null)
 
-  createEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    setSession(session)
+  })
 
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
+  supabase.auth.onAuthStateChange((_event, session) => {
+    setSession(session)
   })
 
   return (
